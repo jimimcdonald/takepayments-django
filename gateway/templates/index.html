@@ -1,0 +1,77 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+<body>
+  <div class="home">
+
+    <br>
+    <img src="/static/img/takepayments-easy-logo.png" height="81" width="366">
+    <p>
+
+    <h1>Payment Gateway for Django.</h1>
+
+    <div class="row">
+        <div class="col-sm-6">
+          <ul>
+            <li><strong>MID:</strong> {{ merch_mid }}</li>
+            <li><strong>Password:</strong> {{ merch_password }}</li>
+            <li><strong>Preshared Key:</strong> {{ merch_presharedkey }}</li>
+          </ul>
+        </div>
+        <div class="col-sm-6">
+          <ul>
+            <li><strong>Hash Method:</strong> {{ merch_hashmethod }}</li>
+            <li><strong>Result Delivery Method:</strong> {{ merch_resultdeliverymethod }}</li>
+            <li><strong>Transaction Type:</strong> {{ merch_transactiontype }}</li>
+          </ul>
+        </div>
+      </ul>
+    </div>
+
+    <p>
+
+    <form class="takepayments-form" id="takepayments-payment-form" name="takepayments-payment-form" target="_self" method="POST" style="display: block;" action="https://mms.tponlinepayments2.com/Pages/PublicPages/PaymentForm.aspx">
+      <input type="text" title="Merchant ID" name="MerchantID" value="{{ merch_mid }}">
+      <input type="text" title="Amount" name="Amount" value="{{ merch_amt }}">
+      <input type="text" title="Currency Code" name="CurrencyCode" value="{{ merch_currencycode }}">
+      <input type="text" title="Order ID" name="OrderID" value="{{ merch_orderid }}">
+      <input type="text" title="Transaction Type" name="TransactionType" value="{{ merch_transactiontype }}">
+      <input type="text" title="Transaction Date & Time" name="TransactionDateTime" value="{{ merch_transactiondatetime }}">
+      <input type="text" title="Order Description" name="OrderDescription" value="{{ merch_orderdesc }}">
+      <input type="text" title="Customer Name" name="CustomerName" value="{{ merch_customername }}">
+      <input type="text" title="Address 1" name="Address1" value="{{ merch_address1 }}">
+      <input type="text" title="Address 2" name="Address2" value="{{ merch_address2 }}">
+      <input type="text" title="Address 3" name="Address3" value="{{ merch_address3 }}">
+      <input type="text" title="Address 4" name="Address4" value="{{ merch_address4 }}">
+      <input type="text" title="City" name="City" value="{{ merch_city }}">
+      <input type="text" title="State" name="State" value="{{ merch_state }}">
+      <input type="text" title="Post Code" name="PostCode" value="{{ merch_postcode }}">
+      <input type="text" title="Country Code" name="CountryCode" value="{{ merch_countrycode }}">
+      <input type="text" title="Hash Method" name="HashMethod" value="{{ merch_hashmethod }}">
+      <input type="text" title="Callback URL" name="CallbackURL" value="{{ merch_callbackurl }}">
+      <input type="text" title="AVS Check Result" name="EchoAVSCheckResult" value="{{ merch_echoavs }}">
+      <input type="text" title="CV2 Chec kResult" name="EchoCV2CheckResult" value="{{ merch_echocv2 }}">
+      <input type="text" title="ThreeD Secure Authentication CheckResult" name="EchoThreeDSecureAuthenticationCheckResult" value="{{ merch_echothreed }}">
+      <input type="text" title="EchoCardType" name="EchoCardType" value="{{ merch_echocardtype }}">
+      <input type="text" title="CV2 Mandatory" name="CV2Mandatory" value="{{ merch_cv2mandatory }}">
+      <input type="text" title="Address1 Mandatory" name="Address1Mandatory" value="{{ merch_address1mandatory }}">
+      <input type="text" title="City Mandatory" name="CityMandatory" value="{{ merch_citymandatory }}">
+      <input type="text" title="Post Code Mandatory" name="PostCodeMandatory" value="{{ merch_postcodemandatory }}">
+      <input type="text" title="State Mandatory" name="StateMandatory" value="{{ merch_statemandatory }}">
+      <input type="text" title="Country Mandatory" name="CountryMandatory" value="{{ merch_countrymandatory }}">
+      <input type="text" title="Result Delivery Method" name="ResultDeliveryMethod" value="{{ merch_resultdeliverymethod }}">
+      <input type="text" title="Server Result URL" name="ServerResultURL" value="{{ merch_serverresulturl }}">
+      <input type="text" title="Payment Form Displays Result" name="PaymentFormDisplaysResult" value="{{ merch_paymentformsdisplaysresult }}">
+      <input type="text" title="Server Result URL Cookie Variables" name="ServerResultURLCookieVariables" value="{{ merch_serverresulturlcookievariables }}">
+      <input type="text" title="Server Result URL Form Variables" name="ServerResultURLFormVariables" value="{{ merch_serverresulturlformvariables }}">
+      <input type="text" title="Server Result URL Query String Variables" name="ServerResultURLQueryStringVariables" value="{{ merch_serverresulturlquerystringvariables }}">
+      <input type="text" title="Hash Digest" name="HashDigest" value="{{ merch_hashdigest }}">
+      <input type="submit" name="debug_submit" id = "formSubmit" value="submit" disabled = "true">
+    </form>
+    <p>
+    <p>Agree to terms and conditions <input type="checkbox"  onchange="document.getElementById('formSubmit').disabled = !this.checked;" />
+
+  </div>
+</body>
+
+{% endblock %}

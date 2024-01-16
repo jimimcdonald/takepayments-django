@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% csrf_token %}
+
+<body>
+  <div class="callback">
+    <br>
+    <img src="/static/img/takepayments-easy-logo.png" height="81" width="366">
+    <p>
+    <h1>Callback Page.</h1>
+
+    <p>{{ text_Message }}</p>
+    <p>{{ Message }}</p>
+
+    <br>{{ text_OrderID }}<strong>{{ OrderID }}</strong></br>
+    <br>{{ text_AddressNumericCheckResult }}<strong>{{ AddressNumericCheckResult }}</strong></br>
+    <br>{{ text_PostCodeCheckResult }}<strong>{{ PostCodeCheckResult }}</strong></br>
+    <br>{{ text_CV2CheckResult }}<strong>{{ CV2CheckResult }}</strong></br>
+    <br>{{ text_ThreeDSecureAuthenticationCheckResult }}<strong>{{ ThreeDSecureAuthenticationCheckResult }}</strong></br>
+
+  </div>
+</body>
+
+{% endblock %}

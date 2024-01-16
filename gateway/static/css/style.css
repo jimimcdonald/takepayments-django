@@ -1,0 +1,23 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+  color: #656275;
+}
+
+a {
+  color: #b20b63;
+}
+
+input[type=submit] {
+  width: 15%;
+
+}
+
+input[type=text] {
+  width: 15%;
+
+}
